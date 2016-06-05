@@ -31,7 +31,7 @@ const store = createStore(
 ```
 
 #Actions
-//actions.js
+```javascript
 import {cookiesGet} from 'redux-cookies';
 
 export function alertSomething() {
@@ -40,3 +40,4 @@ export function alertSomething() {
         window.alert(something);
     };
 }
+```
