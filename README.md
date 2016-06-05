@@ -1,5 +1,5 @@
 # redux-cookies
-Redux cookies-middleware and cookies-actions
+Redux cookies-middleware and cookies-actions for Isomorphic(Universal) cookies
 
 #Server-side
 ```javascript
