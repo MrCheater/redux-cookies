@@ -9,17 +9,19 @@ module.exports = {
             name : name
         };
     },
-    cookiesSet : function cookiesSet(name, value) {
+    cookiesSet : function cookiesSet(name, value, options) {
         return {
             type : REDUX_COOKIES_SET,
             name : name,
-            value : value
+            value : value,
+            options : options
         };
     },
-    cookiesExpire : function cookiesExpire(name) {
+    cookiesExpire : function cookiesExpire(name, options) {
         return {
             type : REDUX_COOKIES_EXPIRE,
-            name : name
+            name : name,
+            options : options
         };
     },
     getCookiesMiddleware : function getCookiesMiddleware(cookies) {
@@ -39,9 +41,9 @@ module.exports = {
                                 return undefined;
                             }
                         case REDUX_COOKIES_SET:
-                            return cookies.set(action.name, action.value);
+                            return cookies.set(action.name, action.value, action.options);
                         case REDUX_COOKIES_EXPIRE:
-                            return cookies.set(action.name, undefined);
+                            return cookies.set(action.name, undefined, action.options);
                     }
                     return next(action);
                 };
