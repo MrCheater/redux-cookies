@@ -41,3 +41,22 @@ export function alertSomething() {
     };
 }
 ```
+
+#Usage
+`redux-cookies` exposes `cookiesSet`, `cookiesSet` and `cookiesExpire`
+
+`cookiesSet` takes a "cookie name", "cookie value" and an optional "options"  // options like "expires"
+`cookiesGet` takes a "cookie name"
+`cookiesExpire` takes a "cookie name" and an "option"
+
+```javascript
+import { cookiesSet, cookiesGet, cookiesExpire } from 'redux-cookie';
+
+dispatch(cookiesSet('AUTH_TOKEN', '1234abc...', { expires: 3600 })) // Expire in one hour
+
+const token = dispatch(cookiesGet('AUTH_TOKEN')) // return the cookie value
+
+dispatch(cookiesExpire('AUTH_TOKEN'))  // expire cookie now
+
+dispatch(cookiesExpire('AUTH_TOKEN', { expires: 3600 })) // Expire in one hour
+```
